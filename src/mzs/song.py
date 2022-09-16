@@ -292,16 +292,17 @@ class Song:
 							calculated_vibratos[key] = OtherDataIndex(len(self.other_data))
 							self.other_data.append(pmacro)
 							
-						com = SongComSetPitchMacro(calculated_vibratos[key])
-						sub_el.events.append(com)
+						#com = SongComSetPitchMacro(calculated_vibratos[key])
+						#sub_el.events.append(com)
 
 				# Check all other effects here
 				for effect in row.effects:
 					if effect.code == dmf.EffectCode.VIBRATO and effect.value != None:
 						current_vibrato = effect.value
 						if (effect.value & 0x0F) == 0 or (effect.value & 0xF0) == 0:
-							com = SongComSetPitchMacro(None)
-							sub_el.events.append(com)
+							pass
+							#com = SongComSetPitchMacro(None)
+							#sub_el.events.append(com)
 
 						elif current_note != None and current_octave != None: # Vibrato should go on after a note is stopped?
 							mlm_note = self.dmfnote_to_mlmnote(ch_kind, current_note, current_octave)
@@ -311,8 +312,8 @@ class Song:
 								calculated_vibratos[key] = OtherDataIndex(len(self.other_data))
 								self.other_data.append(pmacro)
 								
-							com = SongComSetPitchMacro(calculated_vibratos[key])
-							sub_el.events.append(com)
+							#com = SongComSetPitchMacro(calculated_vibratos[key])
+							#sub_el.events.append(com)
 
 					elif effect.code != dmf.EffectCode.SET_SAMPLES_BANK and effect.code != dmf.EffectCode.PORTA_TO_NOTE and effect.value != None:
 						if effect.code in df_fx_to_mlm_event_map:

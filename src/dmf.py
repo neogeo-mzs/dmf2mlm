@@ -235,7 +235,7 @@ supported_effects = [
 	EffectCode.PANNING,          
 	EffectCode.FM_TL_OP1_CONTROL, EffectCode.FM_TL_OP2_CONTROL,
 	EffectCode.FM_TL_OP3_CONTROL, EffectCode.FM_TL_OP4_CONTROL,
-	EffectCode.VIBRATO
+	#EffectCode.VIBRATO
 ]
 
 class Effect:

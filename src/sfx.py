@@ -64,12 +64,12 @@ void MZS_send_user_command(unsigned char command, unsigned char parameter)
     *((volatile unsigned char*)0x320000) = command;
     unsigned char neg_command = command ^ 0xFF;
     while (*((volatile unsigned char*)0x320000) != neg_command);
-    __MZS_wait_loop(64);
+    __MZS_wait_loop(32);
 
     *((volatile unsigned char*)0x320000) = parameter;
     unsigned char neg_parameter = parameter ^ 0xFF;
     while (*((volatile unsigned char*)0x320000) != neg_parameter);
-    __MZS_wait_loop(64);
+    __MZS_wait_loop(32);
 }
 #endif
 
